@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // GLOBAL VARIABLES
-    var difficulty = 'Easy';
+    var difficulty = 'Hard';
     var answer;
     var allCategories = [306, 136, 42, 780, 21, 105, 25, 103, 7];
     var categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
@@ -33,29 +33,30 @@ $(document).ready(function () {
     var category2RandomAnswers = [];
     var category3RandomAnswers = [];
 
-
-
-
-
-    //Choose 3 sepearate categories
+    //CHOOSE 3 SEPERATE CATEGORIES
     function pushToArrary() {
+        //GO DOWN THIS PATH IF THERE ARE DUPLICATE CATEGORIES
         if (chosenCategories == '' && (categoryOne == cateogryTwo || categoryOne == categoryThree || cateogryTwo == categoryThree)) {
             categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
             cateogryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
             categoryThree = allCategories[Math.floor(Math.random() * allCategories.length)];
             pushToArrary();
-        } else {
+        }
+        //IF THERE ARE NO DUPLICATE VALUES, STORE VALUES IN THE CHOSEN CATEGORIES ARRARY
+        else {
             chosenCategories.push(categoryOne);
             chosenCategories.push(cateogryTwo);
             chosenCategories.push(categoryThree);
         }
     }
+    //RUN FUNCTION TO CHOOSE CATEGORIES
     pushToArrary();
 
+    //CHOOSE QUESTIONS BASED ON CHOSEN CATEGORIES
     function chooseQuestions() {
+        //USER PATH IF THEY CHOSE EASY
         if (difficulty == 'Easy') {
             for (i = 0; i < chosenCategories.length; i++) {
-                //Endpoint for easy http://jservice.io/api/clues?catagory=42&value=200&value=100&value=300&value=400
                 var queryURL = 'http://jservice.io/api/clues?value=200&value=100&value=300&value=200&category=' + chosenCategories[i];
                 $.ajax({
                     url: queryURL,
@@ -64,8 +65,10 @@ $(document).ready(function () {
                     for (var i = 0; i < chosenCategories.length; i++) {
                         console.log(queryURL);
                         console.log(response);
-                        
+
+                        //CHOOSE QUESTIONS FOR CATEGORY 1
                         function category1QuestionPopulate() {
+                            //GO DOWN THIS PATH IF THE SAME QUESTION IS DUPLICATED
                             if (category1Q1 == category1Q2 || category1Q1 == category1Q3 || category1Q2 == category1Q3) {
                                 var rand1;
                                 var rand2;
@@ -73,7 +76,6 @@ $(document).ready(function () {
                                 rand1 = Math.floor(Math.random() * response.length);
                                 rand2 = Math.floor(Math.random() * response.length);
                                 rand3 = Math.floor(Math.random() * response.length);
-                                // console.log('Rand 1 = ' + rand1);
                                 category1Q1 = response[rand1].question;
                                 category1A1 = response[rand1].answer;
                                 category1Q2 = response[rand2].question;
@@ -82,6 +84,7 @@ $(document).ready(function () {
                                 category1A3 = response[rand3].answer;
                                 category1QuestionPopulate();
                             }
+                            //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
                                 category1RandomQuestions = [];
                                 category1RandomAnswers = [];
@@ -96,7 +99,9 @@ $(document).ready(function () {
                             }
                         }
 
+                        //CHOOSE QUESTIONS FOR CATEGORY 2
                         function category2QuestionPopulate() {
+                            //GO DOWN THIS PATH IF THE SAME QUESTION IS DUPLICATED
                             if (category2Q1 == category2Q2 || category2Q1 == category2Q3 || category2Q2 == category2Q3) {
                                 var rand4;
                                 var rand5;
@@ -112,6 +117,7 @@ $(document).ready(function () {
                                 category2A3 = response[rand6].answer;
                                 category2QuestionPopulate();
                             }
+                            //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
                                 category2RandomQuestions = [];
                                 category2RandomAnswers = [];
@@ -126,8 +132,10 @@ $(document).ready(function () {
                             }
                         }
 
+                        //CHOOSE QUESTIONS FOR CATEGORY 3
                         function category3QuestionPopulate() {
-                            if (category1RandomQuestions != '' && category2RandomQuestions != '' && category3RandomQuestions == '' && (category3Q1 == category3Q2 || category3Q1 == category3Q3 || category3Q2 == category3Q3)) {
+                            //GO DOWN THIS PATH IF THE SAME QUESTIONS IS DUPLICATED
+                            if (category3Q1 == category3Q2 || category3Q1 == category3Q3 || category3Q2 == category3Q3) {
                                 var rand7;
                                 var rand8;
                                 var rand9;
@@ -142,6 +150,7 @@ $(document).ready(function () {
                                 category3A3 = response[rand9].answer;
                                 category3QuestionPopulate();
                             }
+                            //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
                                 category3RandomQuestions = [];
                                 category3RandomAnswers = [];
@@ -156,14 +165,17 @@ $(document).ready(function () {
                             }
                         }
 
+                        //FIRST ITERATION THROUGH RESPONSE - STORE VALUES FOR CATEGORY 1
                         if (category1RandomQuestions == '') {
                             //POPULATE CATEGORY 1 ARRARY
                             return category1QuestionPopulate();
                         }
+                        //SECOND ITERATION THROUGH RESPONSE - STORE VALUES FOR CATEGORY 2
                         else if (category1RandomQuestions != '' && category2RandomQuestions == '' && category3RandomQuestions == '') {
                             //POPULATE CATEGORY 2 ARRARY
                             return category2QuestionPopulate();
                         }
+                        //LAST ITERATION THROUGH ARRARY - STORE VALUES FOR CATEGORY 3
                         else {
                             //POPULATE CATEGORY 3 ARRARY
                             return category3QuestionPopulate();
@@ -173,6 +185,7 @@ $(document).ready(function () {
                 });
             }
         }
+        //USER PATH IF THEY CHOSE HARD
         else if (difficulty == 'Hard') {
             for (i = 0; i < chosenCategories.length; i++) {
                 //Endpoint for hard http://jservice.io/api/clues?catagory=42&
@@ -185,7 +198,9 @@ $(document).ready(function () {
                         console.log(queryURL);
                         console.log(response);
 
+                        //CHOOSE QUESTIONS FOR CATEGORY 1
                         function category1QuestionPopulate() {
+                            //GO DOWN THIS PATH IF ANY QUESTIONS ARE DUPLICATED
                             if (category1Q1 == category1Q2 || category1Q1 == category1Q3 || category1Q2 == category1Q3) {
                                 var rand1;
                                 var rand2;
@@ -193,7 +208,6 @@ $(document).ready(function () {
                                 rand1 = Math.floor(Math.random() * response.length);
                                 rand2 = Math.floor(Math.random() * response.length);
                                 rand3 = Math.floor(Math.random() * response.length);
-                                // console.log('Rand 1 = ' + rand1);
                                 category1Q1 = response[rand1].question;
                                 category1A1 = response[rand1].answer;
                                 category1Q2 = response[rand2].question;
@@ -202,6 +216,7 @@ $(document).ready(function () {
                                 category1A3 = response[rand3].answer;
                                 category1QuestionPopulate();
                             }
+                            //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
                                 category1RandomQuestions = [];
                                 category1RandomAnswers = [];
@@ -216,7 +231,9 @@ $(document).ready(function () {
                             }
                         }
 
+                        //CHOOSE THE QUESTIONS FOR CATEGORY 2
                         function category2QuestionPopulate() {
+                            //GO DOWN THIS PATH IF ANY QUESTIONS ARE DUPLICATED
                             if (category2Q1 == category2Q2 || category2Q1 == category2Q3 || category2Q2 == category2Q3) {
                                 var rand4;
                                 var rand5;
@@ -232,6 +249,7 @@ $(document).ready(function () {
                                 category2A3 = response[rand6].answer;
                                 category2QuestionPopulate();
                             }
+                            //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
                                 category2RandomQuestions = [];
                                 category2RandomAnswers = [];
@@ -246,8 +264,10 @@ $(document).ready(function () {
                             }
                         }
 
+                        //CHOOSE THE QUESTIONS FOR CATEGORY 3
                         function category3QuestionPopulate() {
-                            if (category1RandomQuestions != '' && category2RandomQuestions != '' && category3RandomQuestions == '' && (category3Q1 == category3Q2 || category3Q1 == category3Q3 || category3Q2 == category3Q3)) {
+                            //GO DOWN THIS PATH IF ANY OF THE QUESTIONS ARE DUPLICATED
+                            if (category3Q1 == category3Q2 || category3Q1 == category3Q3 || category3Q2 == category3Q3) {
                                 var rand7;
                                 var rand8;
                                 var rand9;
@@ -262,6 +282,7 @@ $(document).ready(function () {
                                 category3A3 = response[rand9].answer;
                                 category3QuestionPopulate();
                             }
+                            //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
                                 category3RandomQuestions = [];
                                 category3RandomAnswers = [];
@@ -295,21 +316,7 @@ $(document).ready(function () {
     }
 
     console.log(chosenCategories);
+    //CHOOSE CATEGORIES AND QUESTIONS
     chooseQuestions();
-    // console.log('Category 1 Quesitons: ' + category1RandomQuestions);
-    // console.log('Category 1 Answers: ' + category1RandomAnswers);
-
-
-
-
-
-
-    /*
-    http://jservice.io/api/clues?catagory= +chosenCategory[i]+ &value= +easyDifficulty100
-    */
-
-
-
-
 
 });
