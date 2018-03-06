@@ -35,6 +35,8 @@ $(document).ready(function () {
 
 
 
+
+
     //Choose 3 sepearate categories
     function pushToArrary() {
         if (chosenCategories == '' && (categoryOne == cateogryTwo || categoryOne == categoryThree || cateogryTwo == categoryThree)) {
@@ -79,9 +81,8 @@ $(document).ready(function () {
                         console.log(queryURL);
                         console.log(response);
 
-                        
                         function category1QuestionPopulate() {
-                            if (category1RandomQuestions == '' && category2RandomQuestions == '' && category3RandomQuestions == '' && (category1Q1 == category1Q2 || category1Q1 == category1Q3 || category1Q2 == category1Q3)) {
+                            if (category1Q1 == category1Q2 || category1Q1 == category1Q3 || category1Q2 == category1Q3) {
                                 var rand1;
                                 var rand2;
                                 var rand3;
@@ -112,7 +113,7 @@ $(document).ready(function () {
                         }
 
                         function category2QuestionPopulate() {
-                            if (category1RandomQuestions != '' && category2RandomQuestions == '' && category3RandomQuestions == '' && (category2Q1 == category2Q2 || category2Q1 == category2Q3 || category2Q2 == category2Q3)) {
+                            if (category2Q1 == category2Q2 || category2Q1 == category2Q3 || category2Q2 == category2Q3) {
                                 var rand4;
                                 var rand5;
                                 var rand6;
@@ -170,24 +171,19 @@ $(document).ready(function () {
                                 console.log('Answer Arrary: ' + category3RandomAnswers);
                             }
                         }
-                      
-                        category1QuestionPopulate();
-                        category2QuestionPopulate();
-                        category3QuestionPopulate();
 
-
-                        // if (category1RandomQuestions == '') {
-                        //     category1RandomQuestions.push(category1RandomQuestion1);
-                        //     category1RandomQuestions.push(category1RandomQuestion2);
-                        //     category1RandomQuestions.push(category1RandomQuestion3);
-                        //     console.log(category1RandomQuestions)
-                        // }
-                        // else if (category2Questions == '') {
-                        //     categoryQuestions.push();
-                        // }
-                        // else if (category3Questions == '') {
-                        //     category3Questions.push();
-                        // }
+                        if (category1RandomQuestions == '') {
+                            //POPULATE CATEGORY 1 ARRARY
+                            return category1QuestionPopulate();
+                        }
+                        else if (category1RandomQuestions != '' && category2RandomQuestions == '' && category3RandomQuestions == '') {
+                            //POPULATE CATEGORY 2 ARRARY
+                            return category2QuestionPopulate();
+                        }
+                        else {
+                            //POPULATE CATEGORY 3 ARRARY
+                            return category3QuestionPopulate();
+                        }
                     }
                 });
             }
