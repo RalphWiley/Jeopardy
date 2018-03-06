@@ -17,9 +17,23 @@ $(document).ready(function () {
     var category3Q1;
     var category3Q2;
     var category3Q3;
+    var category1A1;
+    var category1A2;
+    var category1A3;
+    var category2A1;
+    var category2A2;
+    var category2A3;
+    var category3A1;
+    var category3A2;
+    var category3A3;
     var category1RandomQuestions = [];
     var category2RandomQuestions = [];
     var category3RandomQuestions = [];
+    var category1RandomAnswers = [];
+    var category2RandomAnswers = [];
+    var category3RandomAnswers = [];
+
+
 
     //Choose 3 sepearate categories
     function pushToArrary() {
@@ -67,61 +81,91 @@ $(document).ready(function () {
                         // console.log('Question: ' + response[i].question + '  / Answer: ' + response[i].answer);
 
                         //allCategories[Math.floor(Math.random() * allCategories.length)]
-                        category1RandomQuestion1 = response[Math.floor(Math.random() * response.length)].question;
-                        category1RandomQuestion2 = response[Math.floor(Math.random() * response.length)].question;
-                        category1RandomQuestion3 = response[Math.floor(Math.random() * response.length)].question;
+                        // category1RandomQuestion1 = response[Math.floor(Math.random() * response.length)].question;
+                        // category1RandomQuestion2 = response[Math.floor(Math.random() * response.length)].question;
+                        // category1RandomQuestion3 = response[Math.floor(Math.random() * response.length)].question;
                         // console.log(category1RandomQuestion1);
                         // console.log(category1RandomQuestion2);
                         // console.log(category1RandomQuestion3);
 
                         function category1QuestionPopulate() {
-                            if (category1RandomQuestions == '' && (category1RandomQuestion1 == category1RandomQuestion2 || category1RandomQuestion1 == category1RandomQuestion3 || category1RandomQuestion2 == category1RandomQuestion3)) {
-                                category1RandomQuestion1 = response[Math.floor(Math.random() * response.length)].question;
-                                category1RandomQuestion2 = response[Math.floor(Math.random() * response.length)].question;
-                                category1RandomQuestion3 = response[Math.floor(Math.random() * response.length)].question;
-                                categoryQuestionPopulate();
-                            } 
+                            if (category1RandomQuestions == '' && (category1Q1 == category1Q2 || category1Q1 == category1Q3 || category1Q2 == category1Q3)) {
+                                var rand1 = Math.floor(Math.random() * response.length + 1);
+                                console.log('Rand 1 = ' + rand1);
+                                category1Q1 = response[rand1].question;
+                                category1A1 = response[rand1].answer;
+                                console.log('Question:  ' + category1Q1 + '  / Answer: ' + category1A1);
+                                category1Q2 = response[Math.floor(Math.random() * response.length)].question;
+                                category1Q3 = response[Math.floor(Math.random() * response.length)].question;
+                                
+                                // category1A2 = response[Math.floor(Math.random() * response.length)].answer;
+                                // category1A3 = response[Math.floor(Math.random() * response.length)].answer;
+                                category1QuestionPopulate();
+                            }
                             else {
                                 category1RandomQuestions = [];
-                                category1RandomQuestions.push(category1RandomQuestion1);
-                                category1RandomQuestions.push(category1RandomQuestion2);
-                                category1RandomQuestions.push(category1RandomQuestion3);
-                                console.log(category1RandomQuestions);
+                                category1RandomAnswers = [];
+                                category1RandomQuestions.push(category1Q1);
+                                category1RandomQuestions.push(category1Q2);
+                                category1RandomQuestions.push(category1Q3);
+                                category1RandomAnswers.push(category1A1);
+                                category1RandomAnswers.push(category1A2);
+                                category1RandomAnswers.push(category1A3);
+                                console.log('Questions: ' + category1RandomQuestions);
+                                console.log('Answers: ' + category1RandomAnswers);
                             }
                         }
 
                         function category2QuestionPopulate() {
-                            if (category1RandomQuestions == '' && (category1Q1 == category1Q2 || category1Q1 == category1Q3 || category1Q2 == category1Q3)) {
-                                category1Q1 = response[Math.floor(Math.random() * response.length)].question;
-                                category1Q2 = response[Math.floor(Math.random() * response.length)].question;
-                                category1Q3 = response[Math.floor(Math.random() * response.length)].question;
-                                categoryQuestionPopulate();
-                            } 
+                            if (category2RandomQuestions == '' && (category2Q1 == category2Q2 || category2Q1 == category2Q3 || category2Q2 == category2Q3)) {
+                                category2Q1 = response[Math.floor(Math.random() * response.length)].question;
+                                category2Q2 = response[Math.floor(Math.random() * response.length)].question;
+                                category2Q3 = response[Math.floor(Math.random() * response.length)].question;
+                                category2QuestionPopulate();
+                            }
                             else {
-                                category1RandomQuestions = [];
-                                category1RandomQuestions.push(category1Q1);
-                                category1RandomQuestions.push(category1Q2);
-                                category1RandomQuestions.push(category1Q3);
+                                category2RandomQuestions = [];
+                                category2RandomQuestions.push(category2Q1);
+                                category2RandomQuestions.push(category2Q2);
+                                category2RandomQuestions.push(category2Q3);
                                 console.log(category2RandomQuestions);
                             }
                         }
-                            
-                            category1QuestionPopulate();
 
-                            // if (category1RandomQuestions == '') {
-                            //     category1RandomQuestions.push(category1RandomQuestion1);
-                            //     category1RandomQuestions.push(category1RandomQuestion2);
-                            //     category1RandomQuestions.push(category1RandomQuestion3);
-                            //     console.log(category1RandomQuestions)
-                            // }
-                            // else if (category2Questions == '') {
-                            //     categoryQuestions.push();
-                            // }
-                            // else if (category3Questions == '') {
-                            //     category3Questions.push();
-                            // }
+                        function category3QuestionPopulate() {
+                            if (category3RandomQuestions == '' && (category3Q1 == category3Q2 || category3Q1 == category3Q3 || category3Q2 == category3Q3)) {
+                                category3Q1 = response[Math.floor(Math.random() * response.length)].question;
+                                category3Q2 = response[Math.floor(Math.random() * response.length)].question;
+                                category3Q3 = response[Math.floor(Math.random() * response.length)].question;
+                                category3QuestionPopulate();
+                            }
+                            else {
+                                category3RandomQuestions = [];
+                                category3RandomQuestions.push(category3Q1);
+                                category3RandomQuestions.push(category3Q2);
+                                category3RandomQuestions.push(category3Q3);
+                                console.log(category3RandomQuestions);
+                            }
                         }
-                    });
+                        category1QuestionPopulate();
+                        category2QuestionPopulate();
+                        category3QuestionPopulate();
+
+
+                        // if (category1RandomQuestions == '') {
+                        //     category1RandomQuestions.push(category1RandomQuestion1);
+                        //     category1RandomQuestions.push(category1RandomQuestion2);
+                        //     category1RandomQuestions.push(category1RandomQuestion3);
+                        //     console.log(category1RandomQuestions)
+                        // }
+                        // else if (category2Questions == '') {
+                        //     categoryQuestions.push();
+                        // }
+                        // else if (category3Questions == '') {
+                        //     category3Questions.push();
+                        // }
+                    }
+                });
             }
         }
     }
