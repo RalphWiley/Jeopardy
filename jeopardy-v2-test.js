@@ -296,15 +296,17 @@ $(document).ready(function () {
                                 console.log('Answer Arrary: ' + category3RandomAnswers);
                             }
                         }
-                        //POPULATE CATEGORY QUESTION AND ANSWER ARRARYS
+                        //FIRST ITERATION THROUGH RESPONSE - STORE VALUES FOR CATEGORY 1
                         if (category1RandomQuestions == '') {
                             //POPULATE CATEGORY 1 ARRARY
                             return category1QuestionPopulate();
                         }
+                        //SECOND ITERATION THROUGH RESPONSE - STORE VALUES FOR CATEGORY 2
                         else if (category1RandomQuestions != '' && category2RandomQuestions == '' && category3RandomQuestions == '') {
                             //POPULATE CATEGORY 2 ARRARY
                             return category2QuestionPopulate();
                         }
+                        //LAST ITERATION THROUGH ARRARY - STORE VALUES FOR CATEGORY 3
                         else {
                             //POPULATE CATEGORY 3 ARRARY
                             return category3QuestionPopulate();
