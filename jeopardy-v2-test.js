@@ -296,7 +296,7 @@ $(document).ready(function () {
                                 console.log('Answer Arrary: ' + category3RandomAnswers);
                             }
                         }
-
+                        //POPULATE CATEGORY QUESTION AND ANSWER ARRARYS
                         if (category1RandomQuestions == '') {
                             //POPULATE CATEGORY 1 ARRARY
                             return category1QuestionPopulate();
