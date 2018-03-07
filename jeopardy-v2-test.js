@@ -226,6 +226,7 @@ $(document).ready(function () {
                                 category1RandomAnswers.push(category1A1);
                                 category1RandomAnswers.push(category1A2);
                                 category1RandomAnswers.push(category1A3);
+                                console.log('Category: ' + response[i].category_id);
                                 console.log('Question Arrary: ' + category1RandomQuestions);
                                 console.log('Answer Arrary: ' + category1RandomAnswers)
                             }
@@ -259,6 +260,7 @@ $(document).ready(function () {
                                 category2RandomAnswers.push(category2A1);
                                 category2RandomAnswers.push(category2A2);
                                 category2RandomAnswers.push(category2A3);
+                                console.log('Category: ' + response[i].category_id);
                                 console.log('Question Arrary: ' + category2RandomQuestions);
                                 console.log('Answer Arrary: ' + category2RandomAnswers)
                             }
@@ -292,6 +294,7 @@ $(document).ready(function () {
                                 category3RandomAnswers.push(category3A1);
                                 category3RandomAnswers.push(category3A2);
                                 category3RandomAnswers.push(category3A3);
+                                console.log('Category: ' + response[i].category_id);
                                 console.log('Question Arrary: ' + category3RandomQuestions);
                                 console.log('Answer Arrary: ' + category3RandomAnswers);
                             }
