@@ -34,13 +34,13 @@ $(document).ready(function () {
     var category3RandomAnswers = [];
 
     //CHOOSE 3 SEPERATE CATEGORIES
-    function pushToArrary() {
+    function chooseCategories() {
         //GO DOWN THIS PATH IF THERE ARE DUPLICATE CATEGORIES
         if (chosenCategories == '' && (categoryOne == cateogryTwo || categoryOne == categoryThree || cateogryTwo == categoryThree)) {
             categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
             cateogryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
             categoryThree = allCategories[Math.floor(Math.random() * allCategories.length)];
-            pushToArrary();
+            chooseCategories();
         }
         //IF THERE ARE NO DUPLICATE VALUES, STORE VALUES IN THE CHOSEN CATEGORIES ARRARY
         else {
@@ -50,7 +50,7 @@ $(document).ready(function () {
         }
     }
     //RUN FUNCTION TO CHOOSE CATEGORIES
-    pushToArrary();
+    chooseCategories();
 
     //CHOOSE QUESTIONS BASED ON CHOSEN CATEGORIES
     function chooseQuestions() {
