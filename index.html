@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Jeopardy</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:700" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar-header">
+      <div type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <img src="assets/images/Sound-On.jpg" id="soundImage" alt="Sound/On" width="35" height="30">
+      </div>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Background music -->
+        <audio controls autoplay>
+              <!-- <source src="assets/sounds/Jeopardy-theme-song.mp3" type="audio/mpeg"> -->
+                Your browser does not support the audio element.
+            </audio>
+        <audio id="groan">
+                <source src="assets/sounds/crowd-groan.mp3" type="audio/mpeg">
+                Your browser does not support HTML5 video.
+            </audio>
+        <audio id="applause">
+                <source src="assets/sounds/SMALL_CROWD_APPLAUSE-Yannick_Lemieux-1268806408.mp3" type="audio/mpeg">
+                Your browser does not support HTML5 video.
+            </audio>
+        <audio id="times-up">
+                <source src="assets/sounds/Times up.mp3" type="audio/mpeg">
+                Your browser does not support HTML5 video.
+            </audio>
+      </ul>
+    </div>
+
+    <input type="button" class="btn-primary text-white" id="name-submit" value="Add Player" />
+    <input type="text" id="name-input" value="Name" />
+
+
+
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-xs-10">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Easy
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Hard
+          </label>
+        </div>
+        <div id="showgrid">
+          <div class="row">
+            <div class="col-md-4 p-3 mb-2 bg-primary text-white" id="categories">Potent Potables</div>
+            <div class="col-md-4 p-3 mb-2 bg-primary text-white" id="categories">The Pen is Mightier</div>
+            <div class="col-md-4 p-3 mb-2 bg-primary text-white" id="categories">Famous Titles</div>
+          </div>
+          <div class="row">
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
+          </div>
+          <div class="row">
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$400</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$400</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$400</div>
+          </div>
+          <div class="row">
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$600</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$600</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary">$600</div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-2">
+        <div class="card" style="width: 15rem;">
+          <div class="card-header bg-primary text-white">Leaderboard</div>
+            <div class="card-body"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+</body>
+
+</html>
