@@ -38,7 +38,7 @@ $(document).ready(function () {
     var categoryID1;
     var categoryID2;
     var categoryID3;
-    
+
 
     //CHOOSE 3 SEPERATE CATEGORIES
     function chooseCategories() {
@@ -548,15 +548,13 @@ $(document).ready(function () {
     $('#submit').on('click', function () {
         var answer1 = $('#category1A1').val().trim().toLowerCase();
         var answerLowerCase = category1A1.toLowerCase();
-        var isQuestion = answer1.startsWith("What");
-        console.log(answer1);
-       if (answer1 == answerLowerCase && isQuestion) {
-           alert('correct');
-       }
-       else {
-           alert('wrong');
-       }
-       
+        if (answer1 == answerLowerCase) {
+            alert('correct');
+        }
+        else {
+            alert('wrong');
+        }
+
     })
 
 
