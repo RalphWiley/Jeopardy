@@ -132,9 +132,9 @@ $(document).ready(function () {
                 categoryThree = 'U.S. Cities';
             }
             //CHANGE CODE BELOW TO $('id where titles go').text(categoryOne)
-            $('#categories1').text(categoryOne);
-            $('#categories2').text(cateogryTwo);
-            $('#categories3').text(categoryThree);
+            //$('id where titles go').text(categoryOne);
+            //$('id where titles go').text(categoryTwo);
+            //$('id where titles go').text(categoryThree);
         }
     }
     //RUN FUNCTION TO CHOOSE CATEGORIES
