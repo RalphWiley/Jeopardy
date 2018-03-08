@@ -47,6 +47,94 @@ $(document).ready(function () {
             chosenCategories.push(categoryOne);
             chosenCategories.push(cateogryTwo);
             chosenCategories.push(categoryThree);
+            //CATEGORY 1 TITLE
+            if (categoryOne == 42) {
+                categoryOne = 'Sports';
+            }
+            else if (categoryOne == 306) {
+                categoryOne = 'Potpourriiii';
+            }
+            else if (categoryOne == 136) {
+                categoryOne = 'Stupid Answers';
+            }
+            else if (categoryOne == 780) {
+                categoryOne = 'American History';
+            }
+            else if (categoryOne == 21) {
+                categoryOne = 'Animals';
+            }
+            else if (categoryOne == 105) {
+                categoryOne = '3 Letter Words';
+            }
+            else if (categoryOne == 25) {
+                categoryOne = 'Science';
+            }
+            else if (categoryOne == 103) {
+                categoryOne = 'Transportation';
+            }
+            else if (categoryOne == 7) {
+                categoryOne = 'U.S. Cities';
+            }
+            //CATEGORY 2 TITLE
+            if (cateogryTwo == 42) {
+                cateogryTwo = 'Sports';
+            }
+            else if (cateogryTwo == 306) {
+                cateogryTwo = 'Potpourriiii';
+            }
+            else if (cateogryTwo == 136) {
+                cateogryTwo = 'Stupid Answers';
+            }
+            else if (cateogryTwo == 780) {
+                cateogryTwo = 'American History';
+            }
+            else if (cateogryTwo == 21) {
+                cateogryTwo = 'Animals';
+            }
+            else if (cateogryTwo == 105) {
+                cateogryTwo = '3 Letter Words';
+            }
+            else if (cateogryTwo == 25) {
+                cateogryTwo = 'Science';
+            }
+            else if (cateogryTwo == 103) {
+                cateogryTwo = 'Transportation';
+            }
+            else if (cateogryTwo == 7) {
+                cateogryTwo = 'U.S. Cities';
+            }
+            //CATEGORY 3 TITLES
+            if (categoryThree == 42) {
+                categoryThree = 'Sports';
+            }
+            else if (categoryThree == 306) {
+                categoryThree = 'Potpourriiii';
+            }
+            else if (categoryThree == 136) {
+                categoryThree = 'Stupid Answers';
+            }
+            else if (categoryThree == 780) {
+                categoryThree = 'American History';
+            }
+            else if (categoryThree == 21) {
+                categoryThree = 'Animals';
+            }
+            else if (categoryThree == 105) {
+                categoryThree = '3 Letter Words';
+            }
+            else if (categoryThree == 25) {
+                categoryThree = 'Science';
+            }
+            else if (categoryThree == 103) {
+                categoryThree = 'Transportation';
+            }
+            else if (categoryThree == 7) {
+                categoryThree = 'U.S. Cities';
+            }
+            //CHANGE CODE BELOW TO $('id where titles go').text(categoryOne)
+            //$('id where titles go').text(categoryOne);
+            //$('id where titles go').text(categoryTwo);
+            //$('id where titles go').text(categoryThree);
         }
     }
     //RUN FUNCTION TO CHOOSE CATEGORIES
