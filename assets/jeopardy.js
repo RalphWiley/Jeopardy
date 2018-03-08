@@ -77,3 +77,12 @@ $('.easyHard').on('click', function() {
   $('.easyHard').toggle();
   difficulty = $(this).data('difficulty');
 });
+
+function decrement() {
+  $('#time').html('<h1 class="text-primary">Time Remaining: ' + timer + '<h1>');
+  timer--;
+  if (timer === 0) {
+    timedOut();
+    clearInterval(gameTime);
+  }
+}
