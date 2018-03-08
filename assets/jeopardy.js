@@ -19,7 +19,7 @@ function signIn() {
 
     var provider = new firebase.auth.GoogleAuthProvider();
 
-    provider.addScope('https://www.googleapis.com/auth/plus.login');
+    // provider.addScope('https://www.googleapis.com/auth/plus.login');
 
     firebase.auth().signInWithRedirect(provider);
   } else {
@@ -61,7 +61,7 @@ function initApp() {
     // No user is signed in.
   }
   });
-  $('#button').on('click', signIn);
+  $('#name-submit').on('click', signIn);
 
 }
 
@@ -69,3 +69,11 @@ window.onload = function() {
   console.log('one');
   initApp();
 };
+
+// easy/hard buttons, when one is pushed, they disapear.
+// when one of the buttons are pushed the table for the game appears.
+
+$('.easyHard').on('click', function() {
+  $('.easyHard').toggle();
+  difficulty = $(this).data('difficulty');
+});
