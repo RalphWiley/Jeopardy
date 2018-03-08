@@ -5,7 +5,7 @@ $(document).ready(function () {
     var answer;
     var allCategories = [306, 136, 42, 780, 21, 105, 25, 103, 7];
     var categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
-    var cateogryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
+    var categoryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
     var categoryThree = allCategories[Math.floor(Math.random() * allCategories.length)];
     var chosenCategories = [];
     var category1Q1;
@@ -45,7 +45,7 @@ $(document).ready(function () {
         //IF THERE ARE NO DUPLICATE VALUES, STORE VALUES IN THE CHOSEN CATEGORIES ARRARY
         else {
             chosenCategories.push(categoryOne);
-            chosenCategories.push(cateogryTwo);
+            chosenCategories.push(categoryTwo);
             chosenCategories.push(categoryThree);
             //CATEGORY 1 TITLE
             if (categoryOne == 42) {
@@ -132,9 +132,9 @@ $(document).ready(function () {
                 categoryThree = 'U.S. Cities';
             }
             //CHANGE CODE BELOW TO $('id where titles go').text(categoryOne)
-            $('#categories1').text(categoryThree);
-            $('#categories2').text(categoryOne);
-            $('#categories3').text(categoryTwo);
+            //$('id where titles go').text(categoryOne);
+            //$('id where titles go').text(categoryTwo);
+            //$('id where titles go').text(categoryThree);
         }
     }
     //RUN FUNCTION TO CHOOSE CATEGORIES
@@ -409,35 +409,7 @@ $(document).ready(function () {
     }
 
     //ON CLICK EVENTS - SHOW QUESTIONS & CHECK ANSWERS
-    $('.option-button').on('click', function () {
-        if ($(this).data('question') == 'category1Q1') {
-            alert(category1Q1);
-        }
-        else if ($(this).data('question') == 'category1Q2') {
-            alert(category1Q2);
-        }
-        else if ($(this).data('question') == 'category1Q3') {
-            alert(category1Q3);
-        }
-        else if ($(this).data('question') == 'category2Q1') {
-            alert(category2Q1);
-        }
-        else if ($(this).data('question') == 'category2Q2') {
-            alert(category2Q2);
-        }
-        else if ($(this).data('question') == 'category2Q3') {
-            alert(category2Q3);
-        }
-        else if ($(this).data('question') == 'category3Q1') {
-            alert(category3Q1);
-        }
-        else if ($(this).data('question') == 'category3Q2') {
-            alert(category3Q2);
-        }
-        else if ($(this).data('question') == 'category3Q3') {
-            alert(category3Q3);
-        }
-    })
+
 
     console.log(chosenCategories);
     //CHOOSE CATEGORIES AND QUESTIONS

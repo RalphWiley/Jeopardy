@@ -66,27 +66,46 @@
 
         <div id="showgrid">
           <div class="row">
-            <div class="categories col-md-4 p-3 mb-2 bg-primary text-white" id="categories1"><span>Potent Potables</span></div>
-            <div class="categories col-md-4 p-3 mb-2 bg-primary text-white" id="categories2"><span>The Pen is Mightier</span></div>
-            <div class="categories col-md-4 p-3 mb-2 bg-primary text-white" id="categories3"><span>Famous Titles</span></div>
+            <div class="categories col-md-4 p-3 mb-2 bg-primary text-white" id="categories1">Potent Potables</div>
+            <div class="categories col-md-4 p-3 mb-2 bg-primary text-white" id="categories2">The Pen is Mightier</div>
+            <div class="categories col-md-4 p-3 mb-2 bg-primary text-white" id="categories3">Famous Titles</div>
           </div>
           <div class="row">
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
+            <button class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category1Q1">$200</button>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category2Q1">$200</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category3Q1">$200</div>
           </div>
           <div class="row">
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category1Q2">$400</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category2Q2">$400</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category3Q2">$400</div>
           </div>
           <div class="row">
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
-            <div class="column col-md-4 p-3 mb-2 bg-primary">$200</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category1Q3">$600</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category3Q3">$600</div>
+            <div class="column col-md-4 p-3 mb-2 bg-primary option-button" data-question="category3Q3">$600</div>
           </div>
         </div>
       </div>
+
+  <div class="modal fade" id="questionmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -104,7 +123,9 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.9.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <script src="assets/jeopardy.js"></script>
 </body>
 
 </html>
