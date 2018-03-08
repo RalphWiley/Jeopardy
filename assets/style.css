@@ -25,11 +25,11 @@ body {
   font-size: 40px;
   line-height: 220px;
   text-shadow: 1px 1px 5px blue;
-  
+
 
 }
 
-#categories {
+#categories1, #categories2, #categories3 {
   height: 100px;
   margin: auto;
   display: inline;
