@@ -5,7 +5,10 @@ $(document).ready(function () {
     var answer;
     var allCategories = [306, 136, 42, 780, 21, 105, 25, 103, 7];
     var categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
-    var cateogryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
+    var categoryOneName;
+    var categoryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
+    var categoryTwoName;
+    var categoryThreeName;
     var categoryThree = allCategories[Math.floor(Math.random() * allCategories.length)];
     var chosenCategories = [];
     var category1Q1;
@@ -32,20 +35,25 @@ $(document).ready(function () {
     var category1RandomAnswers = [];
     var category2RandomAnswers = [];
     var category3RandomAnswers = [];
+    var categoryID1;
+    var categoryID2;
+    var categoryID3;
+    
 
     //CHOOSE 3 SEPERATE CATEGORIES
     function chooseCategories() {
         //GO DOWN THIS PATH IF THERE ARE DUPLICATE CATEGORIES
-        if (chosenCategories == '' && (categoryOne == cateogryTwo || categoryOne == categoryThree || cateogryTwo == categoryThree)) {
+        if (chosenCategories == '' && (categoryOne == categoryTwo || categoryOne == categoryThree || categoryTwo == categoryThree)) {
             categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
-            cateogryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
+            categoryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
             categoryThree = allCategories[Math.floor(Math.random() * allCategories.length)];
             chooseCategories();
         }
         //IF THERE ARE NO DUPLICATE VALUES, STORE VALUES IN THE CHOSEN CATEGORIES ARRARY
         else {
             chosenCategories.push(categoryOne);
-            chosenCategories.push(cateogryTwo);
+            console.log(categoryOne);
+            chosenCategories.push(categoryTwo);
             chosenCategories.push(categoryThree);
             //CATEGORY 1 TITLE
             if (categoryOne == 42) {
@@ -76,32 +84,32 @@ $(document).ready(function () {
                 categoryOne = 'U.S. Cities';
             }
             //CATEGORY 2 TITLE
-            if (cateogryTwo == 42) {
-                cateogryTwo = 'Sports';
+            if (categoryTwo == 42) {
+                categoryTwo = 'Sports';
             }
-            else if (cateogryTwo == 306) {
-                cateogryTwo = 'Potpourriiii';
+            else if (categoryTwo == 306) {
+                categoryTwo = 'Potpourriiii';
             }
-            else if (cateogryTwo == 136) {
-                cateogryTwo = 'Stupid Answers';
+            else if (categoryTwo == 136) {
+                categoryTwo = 'Stupid Answers';
             }
-            else if (cateogryTwo == 780) {
-                cateogryTwo = 'American History';
+            else if (categoryTwo == 780) {
+                categoryTwo = 'American History';
             }
-            else if (cateogryTwo == 21) {
-                cateogryTwo = 'Animals';
+            else if (categoryTwo == 21) {
+                categoryTwo = 'Animals';
             }
-            else if (cateogryTwo == 105) {
-                cateogryTwo = '3 Letter Words';
+            else if (categoryTwo == 105) {
+                categoryTwo = '3 Letter Words';
             }
-            else if (cateogryTwo == 25) {
-                cateogryTwo = 'Science';
+            else if (categoryTwo == 25) {
+                categoryTwo = 'Science';
             }
-            else if (cateogryTwo == 103) {
-                cateogryTwo = 'Transportation';
+            else if (categoryTwo == 103) {
+                categoryTwo = 'Transportation';
             }
-            else if (cateogryTwo == 7) {
-                cateogryTwo = 'U.S. Cities';
+            else if (categoryTwo == 7) {
+                categoryTwo = 'U.S. Cities';
             }
             //CATEGORY 3 TITLES
             if (categoryThree == 42) {
@@ -132,9 +140,9 @@ $(document).ready(function () {
                 categoryThree = 'U.S. Cities';
             }
             //CHANGE CODE BELOW TO $('id where titles go').text(categoryOne)
-            $('#categories1').text(categoryThree);
-            $('#categories2').text(categoryOne);
-            $('#categories3').text(categoryTwo);
+            //$('#categories1').text(categoryOne);
+            //$('#categories2').text(categoryThree);
+            //$('#categories3').text(categoryTwo);
         }
     }
     //RUN FUNCTION TO CHOOSE CATEGORIES
@@ -161,6 +169,8 @@ $(document).ready(function () {
                                 var rand1;
                                 var rand2;
                                 var rand3;
+                                categoryID1 = response[i].category_id;
+                                //console.log(categoryID);
                                 rand1 = Math.floor(Math.random() * response.length);
                                 rand2 = Math.floor(Math.random() * response.length);
                                 rand3 = Math.floor(Math.random() * response.length);
@@ -174,6 +184,7 @@ $(document).ready(function () {
                             }
                             //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
+                                categoryID1 = response[i].category_id;
                                 category1RandomQuestions = [];
                                 category1RandomAnswers = [];
                                 category1RandomQuestions.push(category1Q1);
@@ -183,7 +194,37 @@ $(document).ready(function () {
                                 category1RandomAnswers.push(category1A2);
                                 category1RandomAnswers.push(category1A3);
                                 console.log('Question Arrary: ' + category1RandomQuestions);
-                                console.log('Answer Arrary: ' + category1RandomAnswers)
+                                console.log('Answer Arrary: ' + category1RandomAnswers);
+
+                                //CATEGORY 1 TITLES
+                                if (categoryID1 == 42) {
+                                    categoryOneName = 'Sports';
+                                }
+                                else if (categoryID1 == 306) {
+                                    categoryOneName = 'Potpourriiii';
+                                }
+                                else if (categoryID1 == 136) {
+                                    categoryOneName = 'Stupid Answers';
+                                }
+                                else if (categoryID1 == 780) {
+                                    categoryOneName = 'American History';
+                                }
+                                else if (categoryID1 == 21) {
+                                    categoryOneName = 'Animals';
+                                }
+                                else if (categoryID1 == 105) {
+                                    categoryOneName = '3 Letter Words';
+                                }
+                                else if (categoryID1 == 25) {
+                                    categoryOneName = 'Science';
+                                }
+                                else if (categoryID1 == 103) {
+                                    categoryOneName = 'Transportation';
+                                }
+                                else if (categoryID1 == 7) {
+                                    categoryOneName = 'U.S. Cities';
+                                }
+                                $('#categories1').text(categoryOneName);
                             }
                         }
 
@@ -194,6 +235,7 @@ $(document).ready(function () {
                                 var rand4;
                                 var rand5;
                                 var rand6;
+                                categoryID2 = response[i].category_id;
                                 rand4 = Math.floor(Math.random() * response.length);
                                 rand5 = Math.floor(Math.random() * response.length);
                                 rand6 = Math.floor(Math.random() * response.length);
@@ -207,6 +249,7 @@ $(document).ready(function () {
                             }
                             //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
+                                categoryID2 = response[i].category_id;
                                 category2RandomQuestions = [];
                                 category2RandomAnswers = [];
                                 category2RandomQuestions.push(category2Q1);
@@ -216,7 +259,37 @@ $(document).ready(function () {
                                 category2RandomAnswers.push(category2A2);
                                 category2RandomAnswers.push(category2A3);
                                 console.log('Question Arrary: ' + category2RandomQuestions);
-                                console.log('Answer Arrary: ' + category2RandomAnswers)
+                                console.log('Answer Arrary: ' + category2RandomAnswers);
+
+                                //CATEGORY 2 TITLES
+                                if (categoryID2 == 42) {
+                                    categoryTwoName = 'Sports';
+                                }
+                                else if (categoryID2 == 306) {
+                                    categoryTwoName = 'Potpourriiii';
+                                }
+                                else if (categoryID2 == 136) {
+                                    categoryTwoName = 'Stupid Answers';
+                                }
+                                else if (categoryID2 == 780) {
+                                    categoryTwoName = 'American History';
+                                }
+                                else if (categoryID2 == 21) {
+                                    categoryTwoName = 'Animals';
+                                }
+                                else if (categoryID2 == 105) {
+                                    categoryTwoName = '3 Letter Words';
+                                }
+                                else if (categoryID2 == 25) {
+                                    categoryTwoName = 'Science';
+                                }
+                                else if (categoryID2 == 103) {
+                                    categoryTwoName = 'Transportation';
+                                }
+                                else if (categoryID2 == 7) {
+                                    categoryTwoName = 'U.S. Cities';
+                                }
+                                $('#categories2').text(categoryTwoName);
                             }
                         }
 
@@ -227,6 +300,7 @@ $(document).ready(function () {
                                 var rand7;
                                 var rand8;
                                 var rand9;
+                                categoryID3 = response[i].category_id;
                                 rand7 = Math.floor(Math.random() * response.length);
                                 rand8 = Math.floor(Math.random() * response.length);
                                 rand9 = Math.floor(Math.random() * response.length);
@@ -240,6 +314,7 @@ $(document).ready(function () {
                             }
                             //GO DOWN THIS PATH IF NONE OF THE QUESTIONS ARE DUPLICATED
                             else {
+                                categoryID3 = response[i].category_id;
                                 category3RandomQuestions = [];
                                 category3RandomAnswers = [];
                                 category3RandomQuestions.push(category3Q1);
@@ -250,6 +325,37 @@ $(document).ready(function () {
                                 category3RandomAnswers.push(category3A3);
                                 console.log('Question Arrary: ' + category3RandomQuestions);
                                 console.log('Answer Arrary: ' + category3RandomAnswers);
+
+                                //CATEGORY 3 TITLES
+                                if (categoryID3 == 42) {
+                                    categoryThreeName = 'Sports';
+                                }
+                                else if (categoryID3 == 306) {
+                                    categoryThreeName = 'Potpourriiii';
+                                }
+                                else if (categoryID3 == 136) {
+                                    categoryThreeName = 'Stupid Answers';
+                                }
+                                else if (categoryID3 == 780) {
+                                    categoryThreeName = 'American History';
+                                }
+                                else if (categoryID3 == 21) {
+                                    categoryThreeName = 'Animals';
+                                }
+                                else if (categoryID3 == 105) {
+                                    categoryThreeName = '3 Letter Words';
+                                }
+                                else if (categoryID3 == 25) {
+                                    categoryThreeName = 'Science';
+                                }
+                                else if (categoryID3 == 103) {
+                                    categoryThreeName = 'Transportation';
+                                }
+                                else if (categoryID3 == 7) {
+                                    categoryThreeName = 'U.S. Cities';
+                                }
+                                $('#categories3').text(categoryThreeName);
+
                             }
                         }
 
@@ -437,7 +543,22 @@ $(document).ready(function () {
         else if ($(this).data('question') == 'category3Q3') {
             alert(category3Q3);
         }
+    });
+
+    $('#submit').on('click', function () {
+        var answer1 = $('#category1A1').val().trim().toLowerCase();
+        var answerLowerCase = category1A1.toLowerCase();
+        var isQuestion = answer1.startsWith("What");
+        console.log(answer1);
+       if (answer1 == answerLowerCase && isQuestion) {
+           alert('correct');
+       }
+       else {
+           alert('wrong');
+       }
+       
     })
+
 
     console.log(chosenCategories);
     //CHOOSE CATEGORIES AND QUESTIONS
