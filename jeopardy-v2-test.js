@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // GLOBAL VARIABLES
-    var difficulty = 'Hard';
+    var difficulty = 'Easy';
     var answer;
     var allCategories = [306, 136, 42, 780, 21, 105, 25, 103, 7];
     var categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
