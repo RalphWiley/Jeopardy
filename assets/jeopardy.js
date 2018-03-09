@@ -55,7 +55,7 @@ function initApp() {
   if (user) {
     displayName = user.displayName;
     $('#user-name').text(displayName);
-    $('#user-score').text(' Score: ' + userScore);
+    $('#user-name span').text(' Score: ' + userScore);
     // put displayName in area for name.
     // when game is over put name in leaderboard in order
     // repalace button with sign out button.
