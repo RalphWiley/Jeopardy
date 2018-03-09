@@ -73,3 +73,10 @@ div.column {
   left: 10px;
 
 }
+
+#user-name {
+    margin-left: 800px;
+    margin-top: 10px;
+    color: white;
+
+}
