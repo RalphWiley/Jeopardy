@@ -9,7 +9,7 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
-var displayName;
+var displayName = 'User';
 var userScore = 0;
 
 
@@ -113,6 +113,7 @@ $(document).ready(function() {
   var categoryID2;
   var categoryID3;
   var answerLowerCase;
+  var questionScore;
 
 
   //CHOOSE 3 SEPERATE CATEGORIES
@@ -544,46 +545,55 @@ $(document).ready(function() {
   //ON CLICK EVENTS - SHOW QUESTIONS & CHECK ANSWERS
   $('.option-button').on('click', function() {
     if ($(this).data('question') == 'category1Q1') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A1.toLowerCase();
       $('#jeopardyQuestion').text(category1Q1);
       $('#myModal').modal();
       // alert(category1Q1);
     } else if ($(this).data('question') == 'category1Q2') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A2.toLowerCase();
       $('#jeopardyQuestion').text(category1Q2);
       $('#myModal').modal();
       // alert(category1Q2);
     } else if ($(this).data('question') == 'category1Q3') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A3.toLowerCase();
       $('#jeopardyQuestion').text(category1Q3);
       $('#myModal').modal();
       // alert(category1Q3);
     } else if ($(this).data('question') == 'category2Q1') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A1.toLowerCase();
       $('#jeopardyQuestion').text(category2Q1);
       $('#myModal').modal();
       // alert(category2Q1);
     } else if ($(this).data('question') == 'category2Q2') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A2.toLowerCase();
       $('#jeopardyQuestion').text(category2Q2);
       $('#myModal').modal();
       // alert(category2Q2);
     } else if ($(this).data('question') == 'category2Q3') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A3.toLowerCase();
       $('#jeopardyQuestion').text(category2Q3);
       $('#myModal').modal();
       // alert(category2Q3);
     } else if ($(this).data('question') == 'category3Q1') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A1.toLowerCase();
       $('#jeopardyQuestion').text(category3Q1);
       $('#myModal').modal();
       // alert(category3Q1);
     } else if ($(this).data('question') == 'category3Q2') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A2.toLowerCase();
       $('#jeopardyQuestion').text(category3Q2);
       $('#myModal').modal();
       // alert(category3Q2);
     } else if ($(this).data('question') == 'category3Q3') {
+      questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A3.toLowerCase();
       $('#jeopardyQuestion').text(category3Q3);
       $('#myModal').modal();
@@ -596,7 +606,11 @@ $(document).ready(function() {
     // var answerLowerCase = $(this).data('answer');
     console.log(answer1, answerLowerCase);
     if (answer1 == answerLowerCase) {
+      userScore += questionScore;
+      console.log(userScore);
       alert('correct');
+      $('#user-name').text(displayName + ' Score: $' + userScore);
+
     } else {
       alert('wrong');
     }
