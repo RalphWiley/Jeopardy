@@ -54,7 +54,7 @@ function initApp() {
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     displayName = user.displayName;
-    $('#user-name').text(displayName + '<span class="badge badge-secondary"> Score:v' + userScore + '</span>');
+    $('#user-name').text(displayName + 'Score: ' + userScore);
     // put displayName in area for name.
     // when game is over put name in leaderboard in order
     // repalace button with sign out button.
