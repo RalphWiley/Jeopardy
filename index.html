@@ -7,7 +7,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Jeopardy</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd"
+    crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/style.css">
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
@@ -30,21 +31,18 @@
       <ul class="nav navbar-nav navbar-right">
         <!-- Background music -->
         <audio controls autoplay>
-              <!-- <source src="assets/sounds/Jeopardy-theme-song.mp3" type="audio/mpeg"> -->
-                Your browser does not support the audio element.
-            </audio>
+          <!-- <source src="assets/sounds/Jeopardy-theme-song.mp3" type="audio/mpeg"> -->
+          Your browser does not support the audio element.
+        </audio>
         <audio id="groan">
-                <source src="assets/sounds/crowd-groan.mp3" type="audio/mpeg">
-                Your browser does not support HTML5 video.
-            </audio>
+          <source src="assets/sounds/crowd-groan.mp3" type="audio/mpeg"> Your browser does not support HTML5 video.
+        </audio>
         <audio id="applause">
-                <source src="assets/sounds/SMALL_CROWD_APPLAUSE-Yannick_Lemieux-1268806408.mp3" type="audio/mpeg">
-                Your browser does not support HTML5 video.
-            </audio>
+          <source src="assets/sounds/SMALL_CROWD_APPLAUSE-Yannick_Lemieux-1268806408.mp3" type="audio/mpeg"> Your browser does not support HTML5 video.
+        </audio>
         <audio id="times-up">
-                <source src="assets/sounds/Times up.mp3" type="audio/mpeg">
-                Your browser does not support HTML5 video.
-            </audio>
+          <source src="assets/sounds/Times up.mp3" type="audio/mpeg"> Your browser does not support HTML5 video.
+        </audio>
       </ul>
     </div>
 
@@ -54,12 +52,12 @@
 
     <div class="row">
       <div class="col-md-10 col-sm-10 col-xs-10">
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> Easy
+        <div class="btn-group btn-group-toggle difficulty" data-toggle="buttons">
+          <label class="btn btn-secondary active difficulty">
+            <input type="radio" data-level="Easy" name="options" id="option1" autocomplete="off" checked> Easy
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Hard
+            <input type="radio" data-level="Hard" name="options" id="option2" autocomplete="off"> Hard
           </label>
         </div>
         <div id="showgrid">
@@ -98,13 +96,11 @@
 
   </div>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="questionModal" aria-hidden="true">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="questionModal" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="jeopardyQuestion">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
@@ -116,8 +112,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="submit">Submit</button>
+          <button data-dismiss="modal" type="button" class="btn btn-primary" id="submit">Submit</button>
         </div>
       </div>
     </div>
@@ -128,7 +123,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" integrity="sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" integrity="sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx"
+    crossorigin="anonymous"></script>
   <script src="assets/jeopardy.js"></script>
 </body>
 
