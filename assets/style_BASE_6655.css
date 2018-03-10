@@ -25,20 +25,17 @@ body {
   font-size: 40px;
   line-height: 220px;
   text-shadow: 1px 1px 5px blue;
-}
-
-.modal-body {
-  font-size: 15px;
+  
 
 }
 
-.categories {
+#categories {
   height: 100px;
   margin: auto;
   display: inline;
   float: left;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
   border-style: solid;
   border-width: 3px;
   border-color: rgb(213, 236, 240);
