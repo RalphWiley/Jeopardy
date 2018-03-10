@@ -36,9 +36,9 @@ $(document).ready(function () {
     //CHOOSE 3 SEPERATE CATEGORIES
     function chooseCategories() {
         //GO DOWN THIS PATH IF THERE ARE DUPLICATE CATEGORIES
-        if (chosenCategories == '' && (categoryOne == cateogryTwo || categoryOne == categoryThree || cateogryTwo == categoryThree)) {
+        if (chosenCategories == '' && (categoryOne == categoryTwo || categoryOne == categoryThree || categoryTwo == categoryThree)) {
             categoryOne = allCategories[Math.floor(Math.random() * allCategories.length)];
-            cateogryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
+            categoryTwo = allCategories[Math.floor(Math.random() * allCategories.length)];
             categoryThree = allCategories[Math.floor(Math.random() * allCategories.length)];
             chooseCategories();
         }
@@ -76,32 +76,32 @@ $(document).ready(function () {
                 categoryOne = 'U.S. Cities';
             }
             //CATEGORY 2 TITLE
-            if (cateogryTwo == 42) {
-                cateogryTwo = 'Sports';
+            if (categoryTwo == 42) {
+                categoryTwo = 'Sports';
             }
-            else if (cateogryTwo == 306) {
-                cateogryTwo = 'Potpourriiii';
+            else if (categoryTwo == 306) {
+                categoryTwo = 'Potpourriiii';
             }
-            else if (cateogryTwo == 136) {
-                cateogryTwo = 'Stupid Answers';
+            else if (categoryTwo == 136) {
+                categoryTwo = 'Stupid Answers';
             }
-            else if (cateogryTwo == 780) {
-                cateogryTwo = 'American History';
+            else if (categoryTwo == 780) {
+                categoryTwo = 'American History';
             }
-            else if (cateogryTwo == 21) {
-                cateogryTwo = 'Animals';
+            else if (categoryTwo == 21) {
+                categoryTwo = 'Animals';
             }
-            else if (cateogryTwo == 105) {
-                cateogryTwo = '3 Letter Words';
+            else if (categoryTwo == 105) {
+                categoryTwo = '3 Letter Words';
             }
-            else if (cateogryTwo == 25) {
-                cateogryTwo = 'Science';
+            else if (categoryTwo == 25) {
+                categoryTwo = 'Science';
             }
-            else if (cateogryTwo == 103) {
-                cateogryTwo = 'Transportation';
+            else if (categoryTwo == 103) {
+                categoryTwo = 'Transportation';
             }
-            else if (cateogryTwo == 7) {
-                cateogryTwo = 'U.S. Cities';
+            else if (categoryTwo == 7) {
+                categoryTwo = 'U.S. Cities';
             }
             //CATEGORY 3 TITLES
             if (categoryThree == 42) {
