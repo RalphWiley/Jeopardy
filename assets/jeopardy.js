@@ -217,7 +217,7 @@ $(document).ready(function() {
     //USER PATH IF THEY CHOSE EASY
     if (difficulty == 'Easy') {
       for (i = 0; i < chosenCategories.length; i++) {
-        var queryURL = 'http://jservice.io/api/clues?value=200&value=100&value=300&value=200&category=' + chosenCategories[i];
+        var queryURL = 'http://jservice.io/api/clues?category=' + chosenCategories[i];
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -423,7 +423,7 @@ $(document).ready(function() {
     else if (difficulty == 'Hard') {
       for (i = 0; i < chosenCategories.length; i++) {
         //Endpoint for hard http://jservice.io/api/clues?catagory=42&
-        var queryURL = 'http://jservice.io/api/clues?value=500&value=600&value=700&value=500&value=500&category=' + chosenCategories[i];
+        var queryURL = 'http://jservice.io/api/clues?category=' + chosenCategories[i];
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -568,6 +568,7 @@ $(document).ready(function() {
       $('#jeopardyQuestion').text(category1Q1);
       $('#myModal').modal({keyboard: false});
       $(this).text('');
+      // $(this).removeClass("option-button");
       // alert(category1Q1);
     } else if ($(this).data('question') == 'category1Q2') {
       questionScore = parseInt($(this).data('score'));
