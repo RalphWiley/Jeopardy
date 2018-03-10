@@ -570,7 +570,7 @@ $(document).ready(function() {
       questionCounter++;
       console.log(questionCounter);
       $('#myModal').modal({keyboard: false});
-      $(this).text(category1A1);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -583,7 +583,7 @@ $(document).ready(function() {
       questionCounter++;
       console.log(questionCounter);
       $('#myModal').modal();
-      $(this).text(category1A2);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -595,7 +595,7 @@ $(document).ready(function() {
       questionCounter++;
       console.log(questionCounter);
       $('#myModal').modal();
-      $(this).text(category1A3);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -607,7 +607,7 @@ $(document).ready(function() {
       console.log(questionCounter);
       $('#jeopardyQuestion').text(category2Q1);
       $('#myModal').modal();
-      $(this).text(category2A1);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -619,7 +619,7 @@ $(document).ready(function() {
       questionCounter++;
       console.log(questionCounter);
       $('#myModal').modal();
-      $(this).text(category2A2);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -631,7 +631,7 @@ $(document).ready(function() {
       questionCounter++;
       console.log(questionCounter);
       $('#myModal').modal();
-      $(this).text(category2A3);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -642,7 +642,7 @@ $(document).ready(function() {
       $('#jeopardyQuestion').text(category3Q1);
       questionCounter++;
       $('#myModal').modal();
-      $(this).text(category3A1);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -654,7 +654,7 @@ $(document).ready(function() {
       questionCounter++;
       console.log(questionCounter);
       $('#myModal').modal();
-      $(this).text(category3A2);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
@@ -666,7 +666,7 @@ $(document).ready(function() {
       questionCounter++;
       console.log(questionCounter);
       $('#myModal').modal();
-      $(this).text(category3A3);
+      $(this).text('');
       if (questionCounter >= 9){
         endGame();
       }
