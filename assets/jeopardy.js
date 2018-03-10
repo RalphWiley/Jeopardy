@@ -1,3 +1,10 @@
+window.onload=function(){
+  $(function(){
+      if(window.location.protocol==="https:")
+          window.location.protocol="http";
+  });
+}
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyB9lkXWDXDgzL4-_C9BlIdwX7Gk5jfH33w",
