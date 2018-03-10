@@ -1,9 +1,9 @@
-window.onload=function(){
-  $(function(){
-      if(window.location.protocol==="https:")
-          window.location.protocol="http";
-  });
-}
+// window.onload=function(){
+//   $(function(){
+//       if(window.location.protocol==="https:")
+//           window.location.protocol="http";
+//   });
+// }
 
 // Initialize Firebase
 var config = {
