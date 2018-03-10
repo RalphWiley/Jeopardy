@@ -122,6 +122,7 @@ $(document).ready(function() {
   var answerLowerCase;
   var questionScore;
   var questionCounter = 0;
+  
 
   function resetGame () {
     location.reload();
@@ -693,6 +694,9 @@ $(document).ready(function() {
     
   });
 
+  
+
+          
 
   console.log(chosenCategories);
   //CHOOSE CATEGORIES AND QUESTIONS
