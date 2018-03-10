@@ -602,6 +602,7 @@ $(document).ready(function() {
   });
 
   $('#submit').on('click', function() {
+    event.preventDefault();
     var answer1 = $('#userAnswer').val().trim().toLowerCase();
     // var answerLowerCase = $(this).data('answer');
     console.log(answer1, answerLowerCase);
