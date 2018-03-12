@@ -82,11 +82,11 @@ div.column {
     color: white;
 
 }
-
 body.modal-open div.modal-backdrop {
     z-index: 0;
 }
 
+<<<<<<< HEAD
 @media only screen and (max-width: 767px) {
   #showgrid {
     width: 100%;
@@ -95,4 +95,8 @@ body.modal-open div.modal-backdrop {
     box-shadow: 5px 5px 25px blue,
                 -5px -5px 25px blue;
   }
+=======
+#answerModal {
+  z-index: 10;
+>>>>>>> 274d3dc3ee9ce603933006d2d5cf725c0a6c6c03
 }
