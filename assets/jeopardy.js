@@ -134,7 +134,7 @@ $(document).ready(function() {
     location.reload();
   }
 
-  database.ref().orderByChild('score').on('child_added', function(snapshot) {
+  database.ref().orderByChild('score').limitToLast(5).on('child_added', function(snapshot) {
     var childData = snapshot.val();
     $('#scores').prepend(childData.name + '- ' + childData.score + '<br>');
     console.log('childData' + childData);
