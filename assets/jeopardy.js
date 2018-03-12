@@ -122,18 +122,19 @@ $(document).ready(function() {
   var answerLowerCase;
   var questionScore;
   var questionCounter = 0;
-  
 
   function resetGame () {
-    location.reload();
+    console.log('reset');
+    database.ref().push({
+      name: displayName,
+      score: questionScore
+    });
+    updateLeaderboard();
   }
 
-  function endGame() {
-    //FUNCTION TO SEND TO LEADERBOARD
-
-    resetGame();
+  function updateLeaderboard() {
+    
   }
-
 
   //CHOOSE 3 SEPERATE CATEGORIES
   function chooseCategories() {
@@ -224,7 +225,7 @@ $(document).ready(function() {
     //USER PATH IF THEY CHOSE EASY
     if (difficulty == 'Easy') {
       for (i = 0; i < chosenCategories.length; i++) {
-        var queryURL = 'http://jservice.io/api/clues?category=' + chosenCategories[i];
+        var queryURL = 'http://jservice.io/api/clues?value=200&value=100&value=300&value=200&category=' + chosenCategories[i];
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -430,7 +431,7 @@ $(document).ready(function() {
     else if (difficulty == 'Hard') {
       for (i = 0; i < chosenCategories.length; i++) {
         //Endpoint for hard http://jservice.io/api/clues?catagory=42&
-        var queryURL = 'http://jservice.io/api/clues?category=' + chosenCategories[i];
+        var queryURL = 'http://jservice.io/api/clues?value=500&value=600&value=700&value=500&value=500&category=' + chosenCategories[i];
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -561,6 +562,11 @@ $(document).ready(function() {
     }
   }
 
+  //ON CLICK - SELECT DIFFICULTY
+  $('.difficulty').on('click', function() {
+    difficulty = $(this).data('level');
+    console.log(difficulty);
+  });
 
   //ON CLICK EVENTS - SHOW QUESTIONS & CHECK ANSWERS
   $('.option-button').on('click', function() {
@@ -568,109 +574,64 @@ $(document).ready(function() {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A1.toLowerCase();
       $('#jeopardyQuestion').text(category1Q1);
-      questionCounter++;
-      console.log(questionCounter);
       $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
-      // $(this).removeClass("option-button");
       // alert(category1Q1);
     } else if ($(this).data('question') == 'category1Q2') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A2.toLowerCase();
       $('#jeopardyQuestion').text(category1Q2);
-      questionCounter++;
-      console.log(questionCounter);
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category1Q2);
     } else if ($(this).data('question') == 'category1Q3') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A3.toLowerCase();
       $('#jeopardyQuestion').text(category1Q3);
-      questionCounter++;
-      console.log(questionCounter);
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category1Q3);
     } else if ($(this).data('question') == 'category2Q1') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A1.toLowerCase();
-      questionCounter++;
-      console.log(questionCounter);
       $('#jeopardyQuestion').text(category2Q1);
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category2Q1);
     } else if ($(this).data('question') == 'category2Q2') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A2.toLowerCase();
       $('#jeopardyQuestion').text(category2Q2);
-      questionCounter++;
-      console.log(questionCounter);
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category2Q2);
     } else if ($(this).data('question') == 'category2Q3') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A3.toLowerCase();
       $('#jeopardyQuestion').text(category2Q3);
-      questionCounter++;
-      console.log(questionCounter);
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category2Q3);
     } else if ($(this).data('question') == 'category3Q1') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A1.toLowerCase();
       $('#jeopardyQuestion').text(category3Q1);
-      questionCounter++;
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category3Q1);
     } else if ($(this).data('question') == 'category3Q2') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A2.toLowerCase();
       $('#jeopardyQuestion').text(category3Q2);
-      questionCounter++;
-      console.log(questionCounter);
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category3Q2);
     } else if ($(this).data('question') == 'category3Q3') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A3.toLowerCase();
       $('#jeopardyQuestion').text(category3Q3);
-      questionCounter++;
-      console.log(questionCounter);
-      $('#myModal').modal();
+      $('#myModal').modal({keyboard: false});
       $(this).text('');
-      if (questionCounter >= 9){
-        endGame();
-      }
       // alert(category3Q3);
     }
   });
@@ -683,20 +644,28 @@ $(document).ready(function() {
     if (answer1 == answerLowerCase) {
       userScore += questionScore;
       console.log(userScore);
-      alert('correct');
       $('#user-name').text(displayName + ' Score: $' + userScore);
+      $('#correctWrong').text('You are correct!');
+      $('#jeopardyAnswer').text('The answer is: ' + answerLowerCase);
+      $('#answerModal').modal();
+      questionCounter ++;
+      if (questionCounter === 9) {
+        resetGame();
+      }
 
     } else {
       userScore -= questionScore;
       $('#user-name').text(displayName + ' Score: $' + userScore);
-      alert('wrong');
+      $('#correctWrong').text('You are incorrect!');
+      $('#jeopardyAnswer').text('The answer is: ' + answerLowerCase);
+      $('#answerModal').modal();
+      questionCounter ++;
+      if (questionCounter === 9) {
+        resetGame();
+      }
     }
-    
+
   });
-
-  
-
-          
 
   console.log(chosenCategories);
   //CHOOSE CATEGORIES AND QUESTIONS

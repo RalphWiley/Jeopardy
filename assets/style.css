@@ -80,7 +80,10 @@ div.column {
     color: white;
 
 }
-
 body.modal-open div.modal-backdrop {
     z-index: 0;
+}
+
+#answerModal {
+  z-index: 10;
 }

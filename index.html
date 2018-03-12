@@ -7,8 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Jeopardy</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/style.css">
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
@@ -101,7 +100,7 @@
             <div class="form-group">
               <label for="message-text" class="col-form-label">Answer:</label>
               <input type="text" class="form-control" id="userAnswer">
-              
+
             </div>
           </form>
         </div>
@@ -112,17 +111,36 @@
     </div>
   </div>
 
+  <div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="questionModal" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="correctWrong">Answer:</h5>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body">
+            <p id="jeopardyAnswer">Answers.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button data-dismiss="modal" type="button" class="btn btn-primary" id="answerClose">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" integrity="sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx"
-    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" integrity="sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx" crossorigin="anonymous"></script>
   <script src="assets/jeopardy.js"></script>
 
 
-  
+
 </body>
 
 </html>
