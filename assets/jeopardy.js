@@ -122,19 +122,25 @@ $(document).ready(function() {
   var answerLowerCase;
   var questionScore;
   var questionCounter = 0;
+  var leaderBoard;
 
   function resetGame () {
     console.log('reset');
+    console.log(displayName + " reset function", userScore + ' reset function');
     database.ref().push({
       name: displayName,
-      score: questionScore
+      score: userScore
     });
-    updateLeaderboard();
   }
 
-  function updateLeaderboard() {
-    
-  }
+  database.ref().orderByChild('score').on('child_added', function(snapshot) {
+    var childData = snapshot.val();
+    $('#scores').prepend(childData.name + '- ' + childData.score + '<br>');
+    console.log('childData' + childData);
+    // ...
+
+});
+
 
   //CHOOSE 3 SEPERATE CATEGORIES
   function chooseCategories() {
