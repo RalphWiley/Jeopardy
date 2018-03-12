@@ -131,6 +131,7 @@ $(document).ready(function() {
       name: displayName,
       score: userScore
     });
+    location.reload();
   }
 
   database.ref().orderByChild('score').on('child_added', function(snapshot) {
