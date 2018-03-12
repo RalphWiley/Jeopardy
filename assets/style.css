@@ -6,14 +6,12 @@ body {
 
 }
 
-#showgrid{
+#showgrid {
   width: 75%;
   margin: 50px;
   font-family: 'Roboto Slab' , serif;
-
-  box-shadow: 5px 5px 25px blue;
-
-
+  box-shadow: 5px 5px 25px blue,
+              -5px -5px 25px blue;
 }
 
 .column {
@@ -25,6 +23,7 @@ body {
   font-size: 40px;
   line-height: 220px;
   text-shadow: 1px 1px 5px blue;
+  color: rgb(224, 197, 16) !important;
 }
 
 .modal-body {
@@ -86,4 +85,14 @@ div.column {
 
 body.modal-open div.modal-backdrop {
     z-index: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  #showgrid {
+    width: 100%;
+    margin: 25px;
+    color: yellow !important;
+    box-shadow: 5px 5px 25px blue,
+                -5px -5px 25px blue;
+  }
 }
