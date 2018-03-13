@@ -40,6 +40,7 @@ body {
   border-style: solid;
   border-width: 3px;
   border-color: rgb(213, 236, 240);
+  word-wrap: break-word;
 
 }
 
@@ -97,8 +98,7 @@ iframe {
   margin-bottom: 100px;
   height: 100%;
 }
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
   #showgrid {
     width: 100%;
     margin: 25px;
@@ -106,7 +106,6 @@ iframe {
     box-shadow: 5px 5px 25px blue,
                 -5px -5px 25px blue;
   }
-<<<<<<< HEAD
 
   .card {
     float: right;
@@ -119,7 +118,30 @@ iframe {
   #name-submit {
     border-radius: 5px;
     padding: 5px;
-    margin-left: 700px;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #showgrid {
+    width: 100%;
+    margin: 25px;
+    color: yellow !important;
+    box-shadow: 5px 5px 25px blue,
+                -5px -5px 25px blue;
+  }
+
+  .card {
+    float: right;
+    margin-top: 500px;
+    margin-right: -185px;
+    font-family: 'Noto Serif', serif;
+
+  }
+
+  #name-submit {
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 0px;
   }
 }
 
