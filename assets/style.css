@@ -95,7 +95,6 @@ body.modal-open div.modal-backdrop {
 
 iframe {
   width: 100%;
-  margin-bottom: 100px;
   height: 100%;
 }
 @media only screen and (max-width: 991px) {
