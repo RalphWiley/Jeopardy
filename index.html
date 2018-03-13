@@ -14,6 +14,16 @@
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif:700" rel="stylesheet">
+  <script type="text/javascript">
+    function stopEnterKey(evt) {
+      var evt = (evt) ? evt : ((event) ? event : null);
+      var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+      if ((evt.keyCode == 13) && (node.type == "text")) {
+        return false;
+      }
+    }
+    document.onkeypress = stopEnterKey;
+  </script>
 </head>
 
 <body>
