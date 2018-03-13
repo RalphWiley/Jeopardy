@@ -85,9 +85,11 @@ div.column {
 body.modal-open div.modal-backdrop {
     z-index: 0;
 }
+#answerModal {
+  z-index: 10;
+}
 
-<<<<<<< HEAD
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   #showgrid {
     width: 100%;
     margin: 25px;
@@ -95,8 +97,65 @@ body.modal-open div.modal-backdrop {
     box-shadow: 5px 5px 25px blue,
                 -5px -5px 25px blue;
   }
-=======
-#answerModal {
-  z-index: 10;
->>>>>>> 274d3dc3ee9ce603933006d2d5cf725c0a6c6c03
+
+  .card {
+    float: right;
+    margin-top: 500px;
+    margin-right: -185px;
+    font-family: 'Noto Serif', serif;
+
+  }
+
+  #name-submit {
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 700px;
+  }
+}
+
+iframe {
+  width: 100%;
+  margin-bottom: 100px;
+  height: 100%;
+}
+
+@media only screen and (max-width: 425px) {
+  #showgrid {
+    width: 100%;
+
+    color: yellow !important;
+    box-shadow: 5px 5px 25px blue,
+                -5px -5px 25px blue;
+  }
+
+  .card {
+    float: right;
+    margin-top: 500px;
+    margin-right: -185px;
+    font-family: 'Noto Serif', serif;
+
+  }
+
+  #name-submit {
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 0;
+  }
+
+  .column {
+    height: 230px;
+    margin: auto;
+    display: inline;
+    float: left;
+    text-align: center;
+    font-size: 40px;
+    line-height: 220px;
+    text-shadow: 1px 1px 5px blue;
+    color: rgb(224, 197, 16) !important;
+  }
+
+  #showgrid-container {
+    width: 100%;
+  }
+
 }
