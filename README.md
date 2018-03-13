@@ -1,12 +1,11 @@
 # Mini-Jeopardy!
-A miniature version of the TV game show *Jeopardy!* that utilizes Firebase, Jservice API and GIPHY API.
+A miniature version of the TV game show *Jeopardy!* that utilizes Firebase, Jservice API and GIPHY API.  Firebase will hold the leaderscores so everyone will know who is the best!
 
 ## Getting Started
 [Mini-Jeopardy!](http://mini-jeopardy-app.herokuapp.com/)
 
-##Screenshot
+## Screenshot
 ![image](https://user-images.githubusercontent.com/33463643/37324104-896ef4e4-2655-11e8-8898-e185e3047132.png)
->>>>>>> 670ce8d95e294d1ca8942d8178cfb1b0d1e2a4a2
 
 ## Technologies used
 - Firebase
