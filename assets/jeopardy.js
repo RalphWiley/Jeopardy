@@ -160,7 +160,7 @@ $(document).ready(function () {
         var src = response.data[i].images.fixed_width.url
         console.log(src);
         //<iframe src="https://giphy.com/embed/3o72wEFZZJGu1FcF3i" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/snl-saturday-night-live-will-ferrell-3o72wEFZZJGu1FcF3i"></a></p>
-        rightImg = '<iframe src="' + src + '" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>>';
+        rightImg = '<iframe src="' + src + '" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>';
         console.log(rightImg);
       }
     });
@@ -187,12 +187,12 @@ $(document).ready(function () {
     $('#answerClose').on('click', function () {
       resetGame();
     });
-    
+
   }
 
   database.ref().orderByChild('score').limitToLast(5).on('child_added', function (snapshot) {
     var childData = snapshot.val();
-    $('#scores').prepend(childData.name + '- ' + childData.score + '<br>');
+    $('#scores').prepend(childData.name + ': ' + childData.score + '<br>');
     console.log('childData' + childData);
     // ...
 
