@@ -179,6 +179,17 @@ $(document).ready(function () {
     location.reload();
   }
 
+  function endGame() {
+    //display modal for game over
+    $('#correctWrong').text('Game Over!');
+    $('#jeopardyAnswer').text('Your final score is:  $' + userScore);
+    $('#answerModal').modal();
+    $('#answerClose').on('click', function () {
+      resetGame();
+    });
+    
+  }
+
   database.ref().orderByChild('score').limitToLast(5).on('child_added', function (snapshot) {
     var childData = snapshot.val();
     $('#scores').prepend(childData.name + '- ' + childData.score + '<br>');
@@ -704,7 +715,7 @@ $(document).ready(function () {
       questionCounter++;
       clickedDiv.html(rightImg);
       if (questionCounter === 9) {
-        resetGame();
+        endGame();
       }
 
     } else {
@@ -716,7 +727,7 @@ $(document).ready(function () {
       clickedDiv.html(wrongImg);
       questionCounter++;
       if (questionCounter === 9) {
-        resetGame();
+        endGame();
       }
     }
 
