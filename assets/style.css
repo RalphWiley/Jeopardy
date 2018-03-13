@@ -86,6 +86,10 @@ body.modal-open div.modal-backdrop {
     z-index: 0;
 }
 
+#zIndex {
+  z-index: 10000000;
+}
+
 iframe {
   width: 100%;
   margin-bottom: 100px;
@@ -102,8 +106,3 @@ iframe {
     box-shadow: 5px 5px 25px blue,
                 -5px -5px 25px blue;
   }
-=======
-#answerModal {
-  z-index: 10;
->>>>>>> 274d3dc3ee9ce603933006d2d5cf725c0a6c6c03
-}
