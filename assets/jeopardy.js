@@ -35,7 +35,7 @@ function signIn() {
 }
 
 function initApp() {
-  firebase.auth().getRedirectResult().then(function(result) {
+  firebase.auth().getRedirectResult().then(function (result) {
     if (result.credential) {
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = result.credential.accessToken;
@@ -43,7 +43,7 @@ function initApp() {
     }
     // The signed-in user info.
     var user = result.user;
-  }).catch(function(error) {
+  }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -56,7 +56,7 @@ function initApp() {
   // An error happened.
 
   // observer to check and see if a user is signed in.
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       displayName = user.displayName;
       $('#user-name').text(displayName + ' Score: $' + userScore);
@@ -73,13 +73,13 @@ function initApp() {
 
 }
 
-window.onload = function() {
+window.onload = function () {
   console.log('one');
   initApp();
 };
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   // GLOBAL VARIABLES
   var difficulty = 'Easy';
@@ -123,8 +123,53 @@ $(document).ready(function() {
   var questionScore;
   var questionCounter = 0;
   var leaderBoard;
+  var gifArrary;
+  var wrongImg;
+  var rightImg;
+  var clickedDiv;
 
-  function resetGame () {
+  function getWrongGIF() {
+    var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=ZGm4k7GW4QuBRafZmsbPRaol8zqSLXZh&q=snl-saturday-night-live-will-ferrell-jeopardy-no&limit=1';
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log(queryURL);
+      console.log(response);
+      console.log(response.data.length);
+      for (var i = 0; i < response.data.length; i++) {
+        var src = response.data[i].images.fixed_width.url
+        console.log(src);
+        //<iframe src="https://giphy.com/embed/3o72wEFZZJGu1FcF3i" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/snl-saturday-night-live-will-ferrell-3o72wEFZZJGu1FcF3i"></a></p>
+        wrongImg = '<iframe src="' + src + '" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>>';
+        console.log(wrongImg);
+      }
+    });
+  }
+
+  function getRightGIF() {
+    var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=ZGm4k7GW4QuBRafZmsbPRaol8zqSLXZh&q=jeopardy-contestant&limit=1';
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log(queryURL);
+      console.log(response);
+      console.log(response.data.length);
+      for (var i = 0; i < response.data.length; i++) {
+        var src = response.data[i].images.fixed_width.url
+        console.log(src);
+        //<iframe src="https://giphy.com/embed/3o72wEFZZJGu1FcF3i" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/snl-saturday-night-live-will-ferrell-3o72wEFZZJGu1FcF3i"></a></p>
+        rightImg = '<iframe src="' + src + '" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>>';
+        console.log(rightImg);
+      }
+    });
+  }
+
+  getWrongGIF();
+  getRightGIF();
+
+  function resetGame() {
     console.log('reset');
     console.log(displayName + " reset function", userScore + ' reset function');
     database.ref().push({
@@ -134,13 +179,13 @@ $(document).ready(function() {
     location.reload();
   }
 
-  database.ref().orderByChild('score').limitToLast(5).on('child_added', function(snapshot) {
+  database.ref().orderByChild('score').limitToLast(5).on('child_added', function (snapshot) {
     var childData = snapshot.val();
     $('#scores').prepend(childData.name + '- ' + childData.score + '<br>');
     console.log('childData' + childData);
     // ...
 
-});
+  });
 
 
   //CHOOSE 3 SEPERATE CATEGORIES
@@ -236,7 +281,7 @@ $(document).ready(function() {
         $.ajax({
           url: queryURL,
           method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
           for (var i = 0; i < chosenCategories.length; i++) {
             console.log(queryURL);
             console.log(response);
@@ -442,7 +487,7 @@ $(document).ready(function() {
         $.ajax({
           url: queryURL,
           method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
           for (var i = 0; i < chosenCategories.length; i++) {
             console.log(queryURL);
             console.log(response);
@@ -570,80 +615,81 @@ $(document).ready(function() {
   }
 
   //ON CLICK - SELECT DIFFICULTY
-  $('.difficulty').on('click', function() {
+  $('.difficulty').on('click', function () {
     difficulty = $(this).data('level');
     console.log(difficulty);
   });
 
   //ON CLICK EVENTS - SHOW QUESTIONS & CHECK ANSWERS
-  $('.option-button').on('click', function() {
+  $('.option-button').on('click', function () {
     if ($(this).data('question') == 'category1Q1') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A1.toLowerCase();
       $('#jeopardyQuestion').text(category1Q1);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
+      //$(this).html();
       // alert(category1Q1);
     } else if ($(this).data('question') == 'category1Q2') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A2.toLowerCase();
       $('#jeopardyQuestion').text(category1Q2);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category1Q2);
     } else if ($(this).data('question') == 'category1Q3') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category1A3.toLowerCase();
       $('#jeopardyQuestion').text(category1Q3);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category1Q3);
     } else if ($(this).data('question') == 'category2Q1') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A1.toLowerCase();
       $('#jeopardyQuestion').text(category2Q1);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category2Q1);
     } else if ($(this).data('question') == 'category2Q2') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A2.toLowerCase();
       $('#jeopardyQuestion').text(category2Q2);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category2Q2);
     } else if ($(this).data('question') == 'category2Q3') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category2A3.toLowerCase();
       $('#jeopardyQuestion').text(category2Q3);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category2Q3);
     } else if ($(this).data('question') == 'category3Q1') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A1.toLowerCase();
       $('#jeopardyQuestion').text(category3Q1);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category3Q1);
     } else if ($(this).data('question') == 'category3Q2') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A2.toLowerCase();
       $('#jeopardyQuestion').text(category3Q2);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category3Q2);
     } else if ($(this).data('question') == 'category3Q3') {
       questionScore = parseInt($(this).data('score'));
       answerLowerCase = category3A3.toLowerCase();
       $('#jeopardyQuestion').text(category3Q3);
-      $('#myModal').modal({keyboard: false});
-      $(this).text('');
+      $('#myModal').modal({ keyboard: false });
+      clickedDiv = $(this);
       // alert(category3Q3);
     }
   });
 
-  $('#submit').on('click', function() {
+  $('#submit').on('click', function () {
     event.preventDefault();
     var answer1 = $('#userAnswer').val().trim().toLowerCase();
     // var answerLowerCase = $(this).data('answer');
@@ -655,7 +701,8 @@ $(document).ready(function() {
       $('#correctWrong').text('You are correct!');
       $('#jeopardyAnswer').text('The answer is: ' + answerLowerCase);
       $('#answerModal').modal();
-      questionCounter ++;
+      questionCounter++;
+      clickedDiv.html(rightImg);
       if (questionCounter === 9) {
         resetGame();
       }
@@ -666,7 +713,8 @@ $(document).ready(function() {
       $('#correctWrong').text('You are incorrect!');
       $('#jeopardyAnswer').text('The answer is: ' + answerLowerCase);
       $('#answerModal').modal();
-      questionCounter ++;
+      clickedDiv.html(wrongImg);
+      questionCounter++;
       if (questionCounter === 9) {
         resetGame();
       }
