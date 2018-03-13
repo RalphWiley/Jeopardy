@@ -28,7 +28,6 @@ body {
 
 .modal-body {
   font-size: 15px;
-
 }
 
 .categories {
@@ -89,6 +88,12 @@ body.modal-open div.modal-backdrop {
   z-index: 10;
 }
 
+iframe {
+  width: 100%;
+  margin-bottom: 100px;
+  height: 100%;
+}
+
 @media only screen and (max-width: 768px) {
   #showgrid {
     width: 100%;
@@ -113,12 +118,6 @@ body.modal-open div.modal-backdrop {
   }
 }
 
-iframe {
-  width: 100%;
-  margin-bottom: 100px;
-  height: 100%;
-}
-
 @media only screen and (max-width: 425px) {
   #showgrid {
     width: 100%;
@@ -130,8 +129,8 @@ iframe {
 
   .card {
     float: right;
-    margin-top: 500px;
-    margin-right: -185px;
+    margin-top: 100px;
+    margin-right: -25px;
     font-family: 'Noto Serif', serif;
 
   }
@@ -154,8 +153,5 @@ iframe {
     color: rgb(224, 197, 16) !important;
   }
 
-  #showgrid-container {
-    width: 100%;
-  }
 
 }
