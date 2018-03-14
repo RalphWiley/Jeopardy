@@ -21,7 +21,7 @@ A miniature version of the TV game show *Jeopardy!* that utilizes Firebase, Jser
 ## Authors
 - [Garrett Lietzen](https://github.com/glietzen)
 - [Chris Beesley](https://github.com/cbeez07)
-- Ralph Wright
+- [Ralph Wright](https://github.com/ralphwright)
 - [Nicholas Keith](https://github.com/RalphWiley)
 
 ## Acknowledgments
