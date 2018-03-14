@@ -13,7 +13,7 @@ A miniature version of the TV game show *Jeopardy!* that utilizes Firebase, Jser
 - GIPHY API
 - Jservice API
 
-## Built width
+## Built with:
 - Microsoft Visual Studio
 - Atom
 - Heroku
