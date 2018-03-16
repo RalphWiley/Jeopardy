@@ -119,6 +119,10 @@ iframe {
     padding: 5px;
     margin-left: 0;
   }
+
+  #user-name {
+    margin-left: 0;
+  }
 }
 @media only screen and (max-width: 767px) {
   #showgrid {
@@ -170,6 +174,11 @@ iframe {
 
   }
 
+  .categories {
+    font-size: 15px;
+  }
+
+
   #name-submit {
     border-radius: 5px;
     padding: 5px;
@@ -182,11 +191,17 @@ iframe {
     display: inline;
     float: left;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 220px;
     text-shadow: 1px 1px 5px blue;
     color: rgb(224, 197, 16) !important;
   }
 
-
+  @media only screen and (max-width: 320px) {
+  .column {
+    font-size: 20px;
+  }
+  .categories {
+    font-size: 10px;
+  }
 }
